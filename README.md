@@ -51,3 +51,24 @@
 |:--------|:-------------------------------|
 |[kogpt2_summarizer_finetuning](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_summarizer_finetuning.ipynb)|kogpt2 모델을 이용한 한국어 생성 요약 Fine-Tuning 훈련 예시임|
 |[kogpt2_summarizer_test](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_summarizer_test.ipynb)|kogpt2 모델을 이용한 한국어 생성 요약하는 예제임, top_k 샘플링 수치를 적용할수 있음, input_ids = 요약할 문장 + 생성token|
+
+## 4. Scrach 훈련(새롭게 훈련)
+#### 1. Sentencepiece tokenizer 생성 
+ - 단어 vocab 생성 (52,000 개 정도가 좋다고 함)
+ - Taks에 맞는 특수 토큰들 추가(bos, eos, summarize, question, answer, classification, nli 토큰 등)
+ 
+#### 2. 빈껍데기 GPT-2 모델 생성
+- embedding size는 token size와 동일 해야 함
+```
+configuration = GPT2Config(vocab_size=52_000)
+model = GPT2LMHeadModel(config=configuration) 
+```
+
+#### 3. 훈련
+- test generation Fine-tuing 방식과 동일하게 훈련
+
+#### 4. 모델과 tokenizer 저장
+```
+model.save_pretrained(MODEL_OUT_PATH)
+tokenizer.save_pretrained(MODEL_OUT_PATH)
+```

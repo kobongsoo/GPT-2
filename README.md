@@ -12,7 +12,7 @@
 |모델|파라메터수|출시일|기타|
 |:--------|:----------|:-----:|-------------------|
 |GPT-1|117M|2018||
-|GPT-2 SMALL(https://huggingface.co/gpt2)|117M|2019|허깅페이스에 등록된 gpt2|
+|[GPT-2 SMALL](https://huggingface.co/gpt2)|117M|2019|허깅페이스에 등록된 gpt2|
 |GPT-2 MEDIUM|345M|2019||
 |GPT-2 LARGE|762M|2019||
 |GPT-2 EXTRA-LARGE|1,542M|2019||

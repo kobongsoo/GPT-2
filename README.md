@@ -7,14 +7,15 @@
 - GPT-1, [GPT-2](https://github.com/openai/gpt-2)는 공개되었지만, GPT-3는 공개 안됨
 
 #### [GPT 모델 종류]
-|모델|파라메터수|출시일|
-|:--------|:----------|:-----:|
-|GPT-1|117M|2018|
-|GPT-2 SMALL|117M|2019|
-|GPT-2 MEDIUM|345M|2019|
-|GPT-2 LARGE|762M|2019|
-|GPT-2 EXTRA-LARGE|1,542M|2019|
-|GPT-3|175,000M|2020|
+|모델|파라메터수|출시일|기타|
+|:--------|:----------|:-----:|-------------------|
+|GPT-1|117M|2018||
+|GPT-2 SMALL|117M|2019||
+|GPT-2 MEDIUM|345M|2019||
+|GPT-2 LARGE|762M|2019||
+|GPT-2 EXTRA-LARGE|1,542M|2019||
+|GPT-3|175,000M|2020||
+|[KoGPT-2 Ver2.0](https://github.com/SKT-AI/KoGPT2)|125M|2021|SKT 한국어 GPT-2 모델|
 
 ## 2.  GPT-2 VS BERT
 - GPT-2는 이전 단어들을 가지고, 다음 단어를 예측하는 **자기 회귀 모델(auto-regressive model)** 임 

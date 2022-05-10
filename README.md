@@ -54,11 +54,11 @@
 
 ### 3. 추론(NLI:Natural Language Inference)
 - gpt-2 모델 선언(GPT2LMHeadModel), tokenizer 선언(PreTrainedTokenizerFast)
-- **문장1 + <문장구분토큰>+ 문장2 + <추론토큰> + 추론값(Entailment, Netural, Contradiction)** 식으로 된 훈련 dataset 생성
+- **문장1 + <문장구분토큰>+ 문장2 + <추론토큰> + 추론값(Entailment, Netural, Contradiction) + <End토큰>** 식으로 된 훈련 dataset 생성
 
 ### 4. Q&A
 - gpt-2 모델 선언(GPT2LMHeadModel), tokenizer 선언(PreTrainedTokenizerFast)
-- **지문 + <Question토큰> + 질문 + <Answer토큰> + 정답** 식으로 된 훈련 dataset 생성
+- **지문 + <Question토큰> + 질문 + <Answer토큰> + 정답 + <End토큰>** 식으로 된 훈련 dataset 생성
 
 ## 4. Scrach 훈련(새롭게 훈련)
 #### 1. Sentencepiece tokenizer 생성 

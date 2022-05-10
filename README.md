@@ -41,7 +41,7 @@
 |소스|내용|
 |:--------|:-------------------------------|
 |[kogpt2_text_generation_finetuning](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_text_generation_finetuning.ipynb)|kogpt2 모델을 이용한 한국어 text generaion Fine-Tuning 훈련 예시임|
-|[kogpt2_text_generation_test](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_text_generation_test.ipynb)|kogpt2 모델을 이용한 한국어 텍스트 생성 하는 예제임, top_k, top_p 등의 샘플링 수치를 적용할수 있음, input_ids = StartToken + 단어|
+|[kogpt2_text_generation_test](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_text_generation_test.ipynb)|kogpt2 모델을 이용한 한국어 텍스트 생성 하는 예제임, top_k, top_p 등의 샘플링 수치를 적용할수 있음, input_ids = <Start 토큰> + 단어 + <End 토큰>|
 
 ### 2. 추상(생성)요약(Abstractive summarization)
 - gpt-2 모델 선언(GPT2LMHeadModel), tokenizer 선언(PreTrainedTokenizerFast)
@@ -51,7 +51,7 @@
 |소스|내용|
 |:--------|:-------------------------------|
 |[kogpt2_summarizer_finetuning](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_summarizer_finetuning.ipynb)|kogpt2 모델을 이용한 한국어 생성 요약 Fine-Tuning 훈련 예시임|
-|[kogpt2_summarizer_test](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_summarizer_test.ipynb)|kogpt2 모델을 이용한 한국어 생성 요약하는 예제임, top_k 샘플링 수치를 적용할수 있음, input_ids = 요약할 문장 + 생성token|
+|[kogpt2_summarizer_test](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_summarizer_test.ipynb)|kogpt2 모델을 이용한 한국어 생성 요약하는 예제임, top_k 샘플링 수치를 적용할수 있음, input_ids = 요약할 문장 + <생성 Token>|
 
 ### 3. 추론(NLI:Natural Language Inference)
 - gpt-2 모델 선언(GPT2LMHeadModel), tokenizer 선언(PreTrainedTokenizerFast)

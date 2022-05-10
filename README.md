@@ -17,7 +17,7 @@
 |GPT-3|175,000M|2020|
 
 ## 2.  GPT-2 VS BERT
-- GPT-2는 이전 단어들을 가지고, 다음 단어를 예측하는 **자기 회귀 모델(auto-regressive model)**임 
+- GPT-2는 이전 단어들을 가지고, 다음 단어를 예측하는 **자기 회귀 모델(auto-regressive model)** 임 
 - BERT는 해당 스텝에서 모든 단어를 고려하는 Self-Attention 사용하고,
 반면, GPT-2는 해당스탭에서 오른쪽에 있는 단어들은 고려 하지 않는 **Masked Self-Attention(CLM(Causal language modeling) 방식)** 사용함
  ![image](https://user-images.githubusercontent.com/93692701/167518193-15bf7128-2e8c-427f-ba87-99bf4c11b936.png)

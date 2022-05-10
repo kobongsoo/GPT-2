@@ -4,7 +4,7 @@
 - Generative Pretrained Transformer2
 - Open AI 에서 개발한 모델로, transformers 의 decode 부분을 12개의 레이어를 쌓아서 만든 language model임
 - **Fine-Tuning을 위한 layer 추가가 필요 없음**
-- **각 Task에 맞게 입력데이터와 정의한 특수토큰들을 조합하여 훈련 시킴** (예: Q&A Fine-Tuing 훈련 데이터 = 지문 + Question 토큰 + 질문 + Answer 토큰 + 정답)
+- **각 Task에 맞게 입력데이터와 정의한 특수토큰들을 조합하여 훈련 시킴** (예: Q&A Fine-Tuing 훈련 데이터 = 지문 + <Question 토큰> + 질문 + <Answer 토큰> + 정답)
 - **BERT 처럼 다국어 모델이 없음**(Open AI에서 배포한 모델은 모두 영어 모델임)
 - GPT-1, [GPT-2](https://github.com/openai/gpt-2)는 공개되었지만, GPT-3는 공개 안됨
 
@@ -33,7 +33,7 @@
 
 ### 1. 텍스트 생성(Text Generation)
 - gpt-2 모델 선언(GPT2LMHeadModel), tokenizer 선언(PreTrainedTokenizerFast)
-- **StartToken + 문장 + EndToken** 식으로 된 훈련 dataset 생성
+- **<Start토큰> + 문장 + <End토큰>** 식으로 된 훈련 dataset 생성
 - 모델에 input_ids, lables, attention_mask 을 입력하여 훈련 시킴
 - 원래 input_ids = 100,200,101,201,300,301 토큰이 입력된다면, labels은 input_ids 좌측으로 shift된 값 labels = 200,101,201,300,301 식으로 입력이 이루어 저야 하는데, **허깅페이스의 GPT2LMHeadModel 를 이용하면, labels = input_ids 와 똑같이 입력하면 내부적으로 label값을 shift 시킴**
 
@@ -44,7 +44,7 @@
 
 ### 2. 추상(생성)요약(Abstractive summarization)
 - gpt-2 모델 선언(GPT2LMHeadModel), tokenizer 선언(PreTrainedTokenizerFast)
-- **요약할 문장+생성 token+요약문+EndToken** 식으로 된 훈련 dataset 생성
+- **요약할 문장+<생성토큰>+요약문+<End토큰>** 식으로 된 훈련 dataset 생성
 - 모델에 input_ids, lables 을 입력하여 훈련 시킴
 
 |소스|내용|
@@ -54,11 +54,11 @@
 
 ### 3. 추론(NLI:Natural Language Inference)
 - gpt-2 모델 선언(GPT2LMHeadModel), tokenizer 선언(PreTrainedTokenizerFast)
-- **문장1 + 문장 구분 토큰+ 문장2 + 추론 토큰 + 추론값(Entailment, Netural, Contradiction)** 식으로 된 훈련 dataset 생성
+- **문장1 + <문장구분토큰>+ 문장2 + <추론토큰> + 추론값(Entailment, Netural, Contradiction)** 식으로 된 훈련 dataset 생성
 
 ### 4. Q&A
 - gpt-2 모델 선언(GPT2LMHeadModel), tokenizer 선언(PreTrainedTokenizerFast)
-- **지문 + Question 토큰 + 질문 + Answer 토큰 + 정답** 식으로 된 훈련 dataset 생성
+- **지문 + <Question토큰> + 질문 + <Answer토큰> + 정답** 식으로 된 훈련 dataset 생성
 
 ## 4. Scrach 훈련(새롭게 훈련)
 #### 1. Sentencepiece tokenizer 생성 

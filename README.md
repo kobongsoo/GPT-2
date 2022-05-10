@@ -26,6 +26,7 @@
 
 ## 3. Fine-Tuning
 - 한국어 [KoGPT-2 Ver2.0](https://github.com/SKT-AI/KoGPT2) 를 가지고 Fine-Tuning 하는 예시임
+- [허깅페이스](https://huggingface.co/) 라이브러리를 이용함, KoGPT-2 모델도 허깅페이스 [여기](https://huggingface.co/skt/kogpt2-base-v2)에 등록되어 있음
 - KoGPT-2는 Tokenizer로 **SentencePiece** 방식 이용함.(GPT-2도 SentencePiece 방식 이용함)
 - KoGPT-2는 vocab size(단어 계수) 가 51,200 개며, embedding 차원수는 768임
 
@@ -33,6 +34,19 @@
 - gpt-2 모델 선언(GPT2LMHeadModel), tokenizer 선언(PreTrainedTokenizerFast)
 - **StartToken + 문장 + EndToken** 식으로 된 훈련 dataset 생성
 - 모델에 input_ids, lables, attention_mask 을 입력하여 훈련 시킴
-- 원래 input_ids = 100,200,101,201,300,301 토큰이 입력된다면, labels은 input_ids 좌측으로 shift된 값 labels = 200,101,201,300,301 식으로 입력이 이루어 저야 하는데, **GPT2LMHeadModel 를 이용하면, labels = input_ids 와 똑같이 입력하면 내부적으로 label값을 shift 시킴**
+- 원래 input_ids = 100,200,101,201,300,301 토큰이 입력된다면, labels은 input_ids 좌측으로 shift된 값 labels = 200,101,201,300,301 식으로 입력이 이루어 저야 하는데, **허깅페이스의 GPT2LMHeadModel 를 이용하면, labels = input_ids 와 똑같이 입력하면 내부적으로 label값을 shift 시킴**
+
+|소스|내용|
+|:--------|:-------------------------------|
+|[kogpt2_text_generation_finetuning](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_text_generation_finetuning.ipynb)|kogpt2 모델을 이용한 한국어 text generaion Fine-Tuning 훈련 예시임|
+|[kogpt2_text_generation_test](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_text_generation_test.ipynb)|kogpt2 모델을 이용한 한국어 텍스트 생성 하는 예제임, top_k, top_p 등의 샘플링 수치를 적용할수 있음, input_ids = StartToken + 단어|
 
 ### 2. 추상(생성)요약(Abstractive summarization)
+- gpt-2 모델 선언(GPT2LMHeadModel), tokenizer 선언(PreTrainedTokenizerFast)
+- **요약할 문장+생성 token+요약문+EndToken** 식으로 된 훈련 dataset 생성
+- 모델에 input_ids, lables 을 입력하여 훈련 시킴
+
+|소스|내용|
+|:--------|:-------------------------------|
+|[kogpt2_summarizer_finetuning](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_summarizer_finetuning.ipynb)|kogpt2 모델을 이용한 한국어 생성 요약 Fine-Tuning 훈련 예시임|
+|[kogpt2_summarizer_test](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_summarizer_test.ipynb)|kogpt2 모델을 이용한 한국어 생성 요약하는 예제임, top_k 샘플링 수치를 적용할수 있음, input_ids = 요약할 문장 + 생성token|

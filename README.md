@@ -33,7 +33,7 @@
 
 ### 1. 텍스트 생성(Text Generation)
 - gpt-2 모델 선언(GPT2LMHeadModel), tokenizer 선언(PreTrainedTokenizerFast)
-- **<Start토큰> + 문장 + <End토큰>** 식으로 된 훈련 dataset 생성
+- **<Start토큰> + 문장 + <End토큰>** 식으로 된 훈련 dataset 생성(**<Start토큰>은 없어도 됨**)
 - 모델에 input_ids, lables, attention_mask 을 입력하여 훈련 시킴
 - 원래 input_ids = 100,200,101,201,300,301 토큰이 입력된다면, labels은 input_ids 좌측으로 shift된 값 labels = 200,101,201,300,301 식으로 입력이 이루어 저야 하는데, **허깅페이스의 GPT2LMHeadModel 를 이용하면, labels = input_ids 와 똑같이 입력하면 내부적으로 label값을 shift 시킴**
 

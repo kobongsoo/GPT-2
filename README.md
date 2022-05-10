@@ -12,9 +12,9 @@
 |모델|파라메터수|출시일|기타|
 |:--------|:----------|:-----:|-------------------|
 |GPT-1|117M|2018||
-|[GPT-2 SMALL](https://huggingface.co/gpt2)|117M|2019|허깅페이스에 등록된 gpt2|
-|GPT-2 MEDIUM|345M|2019||
-|GPT-2 LARGE|762M|2019||
+|[GPT-2 SMALL](https://huggingface.co/gpt2)|124M|2019|허깅페이스에 등록된 gpt2|
+|GPT-2 MEDIUM|355M|2019||
+|GPT-2 LARGE|774M|2019||
 |GPT-2 EXTRA-LARGE|1,542M|2019||
 |GPT-3|175,000M|2020||
 |[KoGPT-2 Ver2.0](https://github.com/SKT-AI/KoGPT2)|125M|2021|SKT 한국어 GPT-2 모델|

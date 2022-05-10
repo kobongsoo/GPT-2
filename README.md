@@ -29,7 +29,7 @@
 - 한국어 [KoGPT-2 Ver2.0](https://github.com/SKT-AI/KoGPT2) 를 가지고 Fine-Tuning 하는 예시임
 - [허깅페이스](https://huggingface.co/) 라이브러리를 이용함, KoGPT-2 모델도 허깅페이스 [여기](https://huggingface.co/skt/kogpt2-base-v2)에 등록되어 있음
 - KoGPT-2는 Tokenizer로 **SentencePiece** 방식 이용함.(GPT-2도 SentencePiece 방식 이용함)
-- KoGPT-2에 **9~108까지 vocab은 unused0~99 로 지정되어 있어, 해당 vocab을 사용자 지정 token(<생성토큰>, <Question토큰> 등)으로 사용해도 됨**
+- KoGPT-2에 **9 부터 108까지 vocab은 unused0 부터unused99로 지정**되어 있어, 해당 vocab을 사용자 지정 token(<생성토큰>, <Question토큰> 등)으로 사용해도 됨
 - KoGPT-2는 vocab size(단어 계수) 가 51,200 개며, embedding 차원수는 768임
 
 ### 1. 텍스트 생성(Text Generation)

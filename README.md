@@ -4,6 +4,7 @@
 ## 1.개요
 - Generative Pretrained Transformer2
 - Open AI 에서 개발한 모델로, transformers 의 decode 부분을 12개의 레이어를 쌓아서 만든 language model임
+- positonal encoding size는 1024 임(즉 **최대 1024 토큰 입력이 가능**함, 참고로 BERT는 512임) 
 - **Fine-Tuning을 위한 layer 추가가 필요 없음**
 - **각 Task에 맞게 입력데이터와 정의한 특수토큰들을 조합하여 훈련 시킴** (예: Q&A Fine-Tuing 훈련 데이터 = 지문 + <Question 토큰> + 질문 + <Answer 토큰> + 정답)
 - GPT의 Tokenizer는 **ByteLevelBPETokenizer**로, **문자 단위가 아니라 유니코드 바이트 수준으로 토큰**화됨.따라서 **별도 다국어 버전이 따로 없음.**.
@@ -30,7 +31,7 @@
 ## 3. Fine-Tuning
 - 한국어 [KoGPT-2 Ver2.0](https://github.com/SKT-AI/KoGPT2) 를 가지고 Fine-Tuning 하는 예시임
 - [허깅페이스](https://huggingface.co/) 라이브러리를 이용함, KoGPT-2 모델도 허깅페이스 [여기](https://huggingface.co/skt/kogpt2-base-v2)에 등록되어 있음
-- KoGPT-2는 Tokenizer로 **SentencePiece** 방식 이용함.(GPT-2도 SentencePiece 방식 이용함)
+- KoGPT-2는 Tokenizer로 **SentencePieceBPETokenizer** 방식 이용함.(GPT-2는 ByteLevelBPETokenizer 방식 이용함)
 - KoGPT-2에 **9 부터 108까지 vocab은 unused0 부터unused99로 지정**되어 있어, 해당 vocab을 사용자 지정 token(<생성토큰>, <Question토큰> 등)으로 사용해도 됨
 - KoGPT-2는 vocab size(단어 계수) 가 51,200 개며, embedding 차원수는 768임
 

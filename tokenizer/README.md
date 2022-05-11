@@ -1,12 +1,18 @@
 # GPT-2 Tokenizer
-- GPT-2 에서는 SententencePieceTokenzer 방식 중 **ByteLevelBPETokenizer** 를 이용한다. 
-- 한국어 KoGPT2는 SententencePieceTokenzer 방식 중 **SentencePieceBPETokenizer** 를 이용한다. 
+- 허깅페이스 GPT2TokenizerFast, PreTrainedTokenizerFast 를 이용하면, 손쉽게 GPT2 Tokenizer를 불러올수 있다.(*참고로 BERT는 BertWordpieceTokenizer 이용함)
+- 여기서는 Tokenizer vocab을 신규 생성하는 방법(SentencePieceBPETokenizer/ByteLevelBPETokenizer) 과, 기존 KoGPT2 모델 vocab에 추가하는 방법(SentencePieceBPETokenizer)에 대해 설명한다.
+
+### GPT2: ByteLevelBPETokenizer  
+- GPT-2는 tokenizer 로 **ByteLevelBPETokenizer** 를 이용한다. 
 - ByteLevelBPETokenizer 는 모든 단어들은 **유니코드 바이트 수준**으로 토큰화 됨. (**한글 1자는 3개의 유니코드 바이트로 표현됨** 예: 안녕하세요 > ìķĪëħķíķĺìĦ¸ìļĶ)
 - GPT-2 는 파일로 vocab.json 와 merges.txt 가 있는데, **vocab.json 바이트 레벨 BPE의 어휘 집합**이며 **merges.txt는 바이그램 쌍의 병합 우선순위**를 나타낸다.
+
+### KoGPT2: SentencePieceBPETokenizer 
+- 한국어 KoGPT2는 tokenizer로 **SentencePieceBPETokenizer** 를 이용한다. 
 - SentencePieceBPETokenizer는 **subword 수준**으로 토큰화 됨
 - 한국어 KoGPT-2는 tokenizer.json(vocab.json과 동일) 만 있고, merges.txt 파일은 없다.
-- 허깅페이스에서도 GPT2TokenizerFast, PreTrainedTokenizerFast 를 이용하는데 모두 SentencePieceTokenizer를 지원한다.(*참고로 BERT는 BertWordpieceTokenizer 이용함)
-- 여기서는 Tokenizer vocab을 신규 생성하는 방법과, 기존 vocab에 추가하는 방법에 대해 설명한다.
+- **한국어 모델은 SentencePieceBPETokenizer 를 이용**하여 만들어야 한다.
+
 
 ## 1. Scratch Tokenizer(신규 생성)
 #### 1. SetnecePieceBPETokenzer 훈련

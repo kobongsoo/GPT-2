@@ -4,7 +4,7 @@
 
 ### GPT2: ByteLevelBPETokenizer  
 - GPT-2는 tokenizer 로 **ByteLevelBPETokenizer** 를 이용한다. 
-- ByteLevelBPETokenizer 는 모든 단어들은 **유니코드 바이트 수준**으로 토큰화 됨. (**한글 1자는 3개의 유니코드 바이트로 표현됨** 예: 안녕하세요 > ìķĪëħķíķĺìĦ¸ìļĶ, 영어 1자는 1개의 유니코드 바이트로 )
+- ByteLevelBPETokenizer 는 모든 단어들은 **유니코드 바이트 수준**으로 토큰화 됨. (**한글 1자는 3개의 유니코드 바이트로 표현됨** 예: 안녕하세요 > ìķĪëħķíķĺìĦ¸ìļĶ, 영어 1자는 1개의 유니코드 바이트로  )
 - GPT-2 는 파일로 vocab.json 와 merges.txt 가 있는데, **vocab.json 바이트 레벨 BPE의 어휘 집합**이며 **merges.txt는 바이그램 쌍의 병합 우선순위**를 나타낸다.
 
 ### KoGPT2: SentencePieceBPETokenizer 

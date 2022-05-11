@@ -6,8 +6,8 @@
 - Open AI 에서 개발한 모델로, transformers 의 decode 부분을 12개의 레이어를 쌓아서 만든 language model임
 - **Fine-Tuning을 위한 layer 추가가 필요 없음**
 - **각 Task에 맞게 입력데이터와 정의한 특수토큰들을 조합하여 훈련 시킴** (예: Q&A Fine-Tuing 훈련 데이터 = 지문 + <Question 토큰> + 질문 + <Answer 토큰> + 정답)
-- GPT의 Tokenizer 기법은 BPE로, **문자 단위가 아니라 유니코드 바이트 수준으로 토큰**화됨.따라서 **다국어 버전이 없음.**.
-- 한국어 단어들은 **토큰화 과정에서 한글자가 3개의 유니코드 바이트로 표현됨.** (예: 안녕하세요 > ìķĪëħķíķĺìĦ¸ìļĶ) 따라서 한글입력시 모델의 출력이 부정확하므로, **한국어에 대해 추가 학습 혹은 따로 모델을 만들어야 함.**
+- GPT의 Tokenizer는 BPE(**ByteLevelBPETokenizer**)로, **문자 단위가 아니라 유니코드 바이트 수준으로 토큰**화됨.따라서 **다국어 버전이 없음.**.
+- 한국어 단어들은 **토큰화 과정에서 한글자가 3개의 유니코드 바이트로 표현됨.** (예: 안녕하세요 > ìķĪëħķíķĺìĦ¸ìļĶ) 따라서 한글입력시 모델의 출력이 부정확하므로, **KoGPT-2 처럼 처음 토큰화 과정부터, 한국어 모델을 새롭게 만들어야 함.**(KoGPT2는 Tokenizer 가 **SentencePieceBPETokenizer** 를 이용했음.)
 - GPT-1, [GPT-2](https://github.com/openai/gpt-2)는 공개되었지만, GPT-3는 공개 안됨
 
 #### [GPT 모델 종류]
@@ -90,3 +90,4 @@ model = GPT2LMHeadModel(config=configuration)
 model.save_pretrained(MODEL_OUT_PATH)
 tokenizer.save_pretrained(MODEL_OUT_PATH)
 ```
+

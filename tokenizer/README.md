@@ -1,8 +1,10 @@
 # GPT-2 Tokenizer
-- GPT-2 에서는 **SententencePieceTokenzer(SentencePieceBPETokenzer)** 를 이용한다. 
-- **BPE(Byte Pair Encoding)** 을 이용하므로, 모든 단어들은 **유니코드 바이트 수준으로 토큰화**를 수행한다.(**한글 1자는 3개의 유니코드 바이트로 표현됨** 예: 안녕하세요 > ìķĪëħķíķĺìĦ¸ìļĶ)
+- GPT-2 에서는 SententencePieceTokenzer 방식 중 **ByteLevelBPETokenizer** 를 이용한다. 
+- 한국어 KoGPT2는 SententencePieceTokenzer 방식 중 **SentencePieceBPETokenizer** 를 이용한다. 
+- ByteLevelBPETokenizer 는 모든 단어들은 **유니코드 바이트 수준**으로 토큰화 됨. (**한글 1자는 3개의 유니코드 바이트로 표현됨** 예: 안녕하세요 > ìķĪëħķíķĺìĦ¸ìļĶ)
 - GPT-2 는 파일로 vocab.json 와 merges.txt 가 있는데, **vocab.json 바이트 레벨 BPE의 어휘 집합**이며 **merges.txt는 바이그램 쌍의 병합 우선순위**를 나타낸다.
-- 참고로, 한국어 KoGPT-2는 tokenizer.json(vocab.json과 동일) 만 있고, merges.txt 파일은 없다.
+- SentencePieceBPETokenizer는 **subword 수준**으로 토큰화 됨
+- 한국어 KoGPT-2는 tokenizer.json(vocab.json과 동일) 만 있고, merges.txt 파일은 없다.
 - 허깅페이스에서도 GPT2TokenizerFast, PreTrainedTokenizerFast 를 이용하는데 모두 SentencePieceTokenizer를 지원한다.(*참고로 BERT는 BertWordpieceTokenizer 이용함)
 - 여기서는 Tokenizer vocab을 신규 생성하는 방법과, 기존 vocab에 추가하는 방법에 대해 설명한다.
 
@@ -24,7 +26,7 @@ stokenizer.train(
     #limit_alphabet=10000, 
 )
 ```
-#### 2. 훈련한 SetnecePieceBPETokenzer 를 PreTrainedTokenizerFast 와 연동
+#### 2. 훈련한 SentencePieceBPETokenzer 를 PreTrainedTokenizerFast 와 연동
 ```
 from transformers import PreTrainedTokenizerFast
 transforer_tokenizer = PreTrainedTokenizerFast(tokenizer_object=stokenizer)
@@ -38,7 +40,10 @@ OUT_PATH = './mytoken'
 os.makedirs(OUT_PATH, exist_ok=True)
 transforer_tokenizer.save_pretrained(OUT_PATH)
 ```
-예제) [new_token.ipynb](https://github.com/kobongsoo/GPT-2/blob/master/tokenizer/new_token.ipynb)
+|소스| 설명 | 기타 |
+|:------------|:--------------------------|:---------------|
+|[new_token.ipynb](https://github.com/kobongsoo/GPT-2/blob/master/tokenizer/new_token.ipynb)| SentencePieceBPETokenizer 이용한 vocab 생성 | KoGPT2 방식|
+|[new_token_bytelevelbpeokenizer](https://github.com/kobongsoo/GPT-2/blob/master/tokenizer/new_token_bytelevelbpeokenizer.ipynb)| ByteLevelBPETokenizer 이용한 vocab 생성 | GPT2 방식|
 
 ## 2. 기존 vocab 추가하기
 #### 1. 기존 tokenizer 불러오기
@@ -69,3 +74,8 @@ os.makedirs(OUT_PATH, exist_ok=True)
 tokenizer.save_pretrained(OUT_PATH)
 ```
 예제) [add_token.ipynb](https://github.com/kobongsoo/GPT-2/blob/master/tokenizer/add_token.ipynb)
+
+
+## 참고 사이트
+- [허깅페이스 tokenizer 예제](https://gist.github.com/lovit/e11c57877aae4286ade4c203d6c26a32)
+- [nlpbook tokenizer 강좌](https://ratsgo.github.io/nlpbook/docs/preprocess/vocab/)

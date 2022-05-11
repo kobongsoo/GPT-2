@@ -67,7 +67,7 @@
 
 
 
-## 4. Scrach 훈련(새롭게 훈련)
+## 4. 새롭게 훈련(GPT-2 From Scratch)
 #### 1. Sentencepiece tokenizer 생성 
  - 단어 vocab 생성 (52,000 개 정도가 좋다고 함)
  - Taks에 맞는 특수 토큰들 추가(bos, eos, summarize, question, answer, classification, nli 토큰 등)

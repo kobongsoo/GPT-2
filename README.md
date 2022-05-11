@@ -4,7 +4,7 @@
 ## 1.개요
 - Generative Pretrained Transformer2
 - Open AI 에서 개발한 모델로, transformers 의 decode 부분을 12개의 레이어를 쌓아서 만든 language model임
-- positonal encoding size는 1024 임(즉 **최대 1024 토큰 입력이 가능**함, 참고로 BERT는 512임) 
+- positonal encoding size는 1024 임(즉 **최대 1024 토큰 입력이 가능**함, 참고로 BERT는 512, GPT-3는 2048임) 
 - **Fine-Tuning을 위한 layer 추가가 필요 없음**
 - **각 Task에 맞게 입력데이터와 정의한 특수토큰들을 조합하여 훈련 시킴** (예: Q&A Fine-Tuing 훈련 데이터 = 지문 + <Question 토큰> + 질문 + <Answer 토큰> + 정답)
 - GPT의 Tokenizer는 **ByteLevelBPETokenizer**로, **문자 단위가 아니라 유니코드 바이트 수준으로 토큰**화됨.따라서 **별도 다국어 버전이 따로 없음.**.
@@ -12,15 +12,15 @@
 - GPT-1, [GPT-2](https://github.com/openai/gpt-2)는 공개되었지만, GPT-3는 공개 안됨
 
 #### [GPT 모델 종류]
-|모델|파라메터수|출시일|기타|
-|:--------|:----------|:-----:|-------------------|
-|GPT-1|117M|2018||
-|[GPT-2 SMALL](https://huggingface.co/gpt2)|124M|2019|허깅페이스에 등록된 gpt2|
-|GPT-2 MEDIUM|355M|2019||
-|GPT-2 LARGE|774M|2019||
-|GPT-2 EXTRA-LARGE|1,542M|2019||
-|GPT-3|175,000M|2020||
-|[KoGPT-2 Ver2.0](https://github.com/SKT-AI/KoGPT2)|125M|2021|SKT 한국어 GPT-2 모델|
+|모델|파라메터수|출시일|레이어수|embedding size|기타|
+|:--------|----------:|----:|-----:|-----:|-------------------|
+|GPT-1|117M|2018|12|||
+|[GPT-2 SMALL](https://huggingface.co/gpt2)|117M|2019|12|768|허깅페이스에 등록된 gpt2|
+|GPT-2 MEDIUM|345M|2019|24|1,024||
+|GPT-2 LARGE|762M|2019|36|1,280||
+|GPT-2 EXTRA-LARGE|1,500M|2019|48|1,600||
+|GPT-3|175,000M|2020|96|12,888||
+|[KoGPT-2 Ver2.0](https://github.com/SKT-AI/KoGPT2)|125M|2021|12|768|SKT 한국어 GPT-2 SMALL 모델|
 
 ## 2.  GPT-2 VS BERT
 - GPT-2는 이전 단어들을 가지고, 다음 단어를 예측하는 **자기 회귀 모델(auto-regressive model)** 임 

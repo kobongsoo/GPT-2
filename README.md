@@ -65,6 +65,7 @@
 #### 1. Sentencepiece tokenizer 생성 
  - 단어 vocab 생성 (52,000 개 정도가 좋다고 함)
  - Taks에 맞는 특수 토큰들 추가(bos, eos, summarize, question, answer, classification, nli 토큰 등)
+ - 자세한 내용은 [여기](https://github.com/kobongsoo/GPT-2/tree/master/tokenizer) 참고 
  
 #### 2. 빈껍데기 GPT-2 모델 생성
 - embedding size는 token size와 동일 해야 함

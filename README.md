@@ -22,6 +22,8 @@
 |GPT-3|175,000M|2020|96|12,888||
 |[KoGPT-2 Ver2.0](https://github.com/SKT-AI/KoGPT2)|125M|2021|12|768|SKT 한국어 GPT-2 SMALL 모델|
 
+- 각종 모델 spec 에 대한 자세한 내용은 [여기](https://huggingface.co/transformers/v2.2.0/pretrained_models.html) 참조 바람
+
 ## 2.  GPT-2 VS BERT
 - GPT-2는 이전 단어들을 가지고, 다음 단어를 예측하는 **자기 회귀 모델(auto-regressive model)** 임 
 - BERT는 해당 스텝에서 모든 단어를 고려하는 Self-Attention 사용하고,

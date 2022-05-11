@@ -6,7 +6,7 @@
 - Open AI 에서 개발한 모델로, transformers 의 decode 부분을 12개의 레이어를 쌓아서 만든 language model임
 - **Fine-Tuning을 위한 layer 추가가 필요 없음**
 - **각 Task에 맞게 입력데이터와 정의한 특수토큰들을 조합하여 훈련 시킴** (예: Q&A Fine-Tuing 훈련 데이터 = 지문 + <Question 토큰> + 질문 + <Answer 토큰> + 정답)
-- **BERT 처럼 다국어 모델이 없음**(Open AI에서 배포한 모델은 모두 영어 모델임)
+- **BERT 처럼 다국어 모델은 없지만, 한국어를 모델에 입력할때, 한국어 단어들은 토큰화 과정에서 char 단위로 쪼개져서 적용되므로 출력이 부적확함. 따라서 한국어에 대해 추가 학습 혹은 따로 모델을 만들어야 함**
 - GPT-1, [GPT-2](https://github.com/openai/gpt-2)는 공개되었지만, GPT-3는 공개 안됨
 
 #### [GPT 모델 종류]

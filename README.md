@@ -61,6 +61,12 @@
 - gpt-2 모델 선언(GPT2LMHeadModel), tokenizer 선언(PreTrainedTokenizerFast)
 - **지문 + <Question토큰> + 질문 + <Answer토큰> + 정답 + <End토큰>** 식으로 된 훈련 dataset 생성
 
+|소스|내용|
+|:--------|:-------------------------------|
+|[kogpt2_QA_finetuning](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_QA_finetuning.ipynb)|kogpt2 모델을 이용한 한국어 Q&A Fine-Tuning 훈련 예시임|
+
+
+
 ## 4. Scrach 훈련(새롭게 훈련)
 #### 1. Sentencepiece tokenizer 생성 
  - 단어 vocab 생성 (52,000 개 정도가 좋다고 함)

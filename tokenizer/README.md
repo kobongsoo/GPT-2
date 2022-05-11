@@ -35,3 +35,34 @@ OUT_PATH = './mytoken'
 os.makedirs(OUT_PATH, exist_ok=True)
 transforer_tokenizer.save_pretrained(OUT_PATH)
 ```
+예제) [new_token.ipynb](https://github.com/kobongsoo/GPT-2/blob/master/tokenizer/new_token.ipynb)
+
+## 2. 기존 vocab 추가하기
+#### 1. 기존 tokenizer 불러오기
+- bos_token, eos_token, unk_token, pad_token, mask_token 등은 기존 tokenizer.json 파일에 저장된 실제 token값들을 입력해야 함
+```
+from transformers import PreTrainedTokenizerFast, GPT2TokenizerFast
+
+model_path='../../model/gpt-2/kogpt-2/'   #tokenizer 파일 경로
+tokenizer = PreTrainedTokenizerFast.from_pretrained(model_path,
+                                                   bos_token='</s>',
+                                                   eos_token='</s>',
+                                                   unk_token='<unk>',
+                                                   pad_token='<pad>',
+                                                   mask_token='<mask>')
+```
+#### 2. 신규 vocab 추가
+- 추가할 vocab들은 목록(list)로 여러개 지정할 수 있음
+```
+new_vocab = ['<question>', '<answer>'] # 추가할 vocab 들
+new_tokenizer = tokenizer.add_tokens(new_vocab)
+```
+#### 3. 추가한 tokenzier 저장
+- 정상적으로 저장되면, 해당 폴더에 3개 json 파일이 생성됨(tokenizer.json, special_tokens_map.json, tokenizer_config.json)
+```
+import os
+OUT_PATH = '../../model/gpt-2/kogpt-2/addvocab'
+os.makedirs(OUT_PATH, exist_ok=True)
+tokenizer.save_pretrained(OUT_PATH)
+```
+예제) [add_token.ipynb](https://github.com/kobongsoo/GPT-2/blob/master/tokenizer/add_token.ipynb)

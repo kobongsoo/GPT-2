@@ -4,13 +4,65 @@
 
 ### GPT2: ByteLevelBPETokenizer  
 - GPT-2는 tokenizer 로 **ByteLevelBPETokenizer** 를 이용한다. 
-- ByteLevelBPETokenizer 는 모든 단어들은 **유니코드 바이트 수준**으로 토큰화 됨. (**한글 1자는 3개의 유니코드 바이트로 표현됨** 예: 안녕하세요 > ìķĪëħķíķĺìĦ¸ìļĶ, 영어 1자는 1개의 유니코드 바이트로 표현됨)
+- ByteLevelBPETokenizer 는 모든 단어들은 **유니코드 바이트 수준**으로 토큰화 됨. (**한글 1자는 1~3개의 유니코드 바이트로 표현됨** 예: 안녕하세요 > ìķĪëħķíķĺìĦ¸ìļĶ, 영어 1자는 1개의 유니코드 바이트로 표현됨)
+```
+sentence = '반갑습니다'
+output = stokenizer.encode(sentence)
+print('=>idx   : %s'%output.ids)
+print('=>tokens: %s'%output.tokens)
+print('=>offset: %s'%output.offsets)
+print('=>decode: %s\n'%stokenizer.decode(output.ids))
+
+=>idx   : [598, 251, 285, 244, 173, 237, 118, 267, 294]
+=>tokens: ['ë°', 'ĺ', 'ê°', 'ĳ', 'ì', 'Ĭ', 'µ', 'ëĭ', 'Īëĭ¤']
+=>offset: [(0, 1), (0, 1), (1, 2), (1, 2), (2, 3), (2, 3), (2, 3), (3, 4), (3, 5)]
+=>decode: 반갑습니다
+```
+```
+sentence = 'hello'
+output = stokenizer.encode(sentence)
+print('=>idx   : %s'%output.ids)
+print('=>tokens: %s'%output.tokens)
+print('=>offset: %s'%output.offsets)
+print('=>decode: %s\n'%stokenizer.decode(output.ids))
+
+=>idx   : [76, 73, 80, 80, 83]
+=>tokens: ['h', 'e', 'l', 'l', 'o']
+=>offset: [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5)]
+=>decode: hello
+```
 - 따라서 한국어 모델에서는 ByteLevelBPETokenizer로 tokenizer 하면, 다음 단어 예측할때 1Byte 단위로 예측이 되므로, 이상한 한글 단어가 나옴. 따라서 **한국어 모델**에서는 아래 **SentencePieceBPETokenizer를 이용** 하는게 좋다
 - GPT-2 는 파일로 vocab.json 와 merges.txt 가 있는데, **vocab.json 바이트 레벨 BPE의 어휘 집합**이며 **merges.txt는 바이그램 쌍의 병합 우선순위**를 나타낸다.
 
 ### KoGPT2: SentencePieceBPETokenizer 
 - 한국어 KoGPT2는 tokenizer로 **SentencePieceBPETokenizer** 를 이용한다. 
 - SentencePieceBPETokenizer는 **subword 수준**으로 토큰화 됨
+```
+sentence = '반갑습니다'
+output = stokenizer.encode(sentence)
+print('=>idx   : %s'%output.ids)
+print('=>tokens: %s'%output.tokens)
+print('=>offset: %s'%output.offsets)
+print('=>decode: %s\n'%stokenizer.decode(output.ids))
+
+=>idx   : [1125, 124, 6624, 270]
+=>tokens: ['▁반', '갑', '습니', '다']
+=>offset: [(0, 1), (1, 2), (2, 4), (4, 5)]
+=>decode: 반갑습니다
+```
+```
+sentence = 'hello'
+output = stokenizer.encode(sentence)
+print('=>idx   : %s'%output.ids)
+print('=>tokens: %s'%output.tokens)
+print('=>offset: %s'%output.offsets)
+print('=>decode: %s\n'%stokenizer.decode(output.ids))
+
+=>idx   : [109, 75, 8968, 81]
+=>tokens: ['▁', 'h', 'ell', 'o']
+=>offset: [(0, 1), (0, 1), (1, 4), (4, 5)]
+=>decode: hello
+```
 - 한국어 KoGPT-2는 tokenizer.json(vocab.json과 동일) 만 있고, merges.txt 파일은 없다.
 - **한국어 모델은 SentencePieceBPETokenizer 를 이용**하여 만들어야 한다.
 

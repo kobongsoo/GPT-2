@@ -7,7 +7,11 @@
 - BLEU는 기계번역 성능 측정 스코어로, **실제 번역 문장(references)** 과 **모델이 생성한 문장(candidate)** 을 비교하여 스코어를 구한다
 - 측정 기준은 n-gram에 기반하며, 0~1 사이값을 가짐. BLEU 값이 높을 수록 성능이 좋음을 의미함. (BLEU에 대한 자세한 내용은 [여기](https://wikidocs.net/31695) 참조)
 - NLTK에 **bleu_score 라이브러리**를 이용하면 됨
-- 참고로 **get_bleu_scores 함수** 를 구현해 놨음 ([소스](https://github.com/kobongsoo/GPT-2/blob/master/evaluate/bleuscore_test.ipynb) 참조)
+- 참고로 아래 예제에 **get_bleu_scores 함수** 를 구현해 놨음 
+
+|소스|내용|
+|:--------|:-------------------------------|
+|[bleuscore_test.ipynb](https://github.com/kobongsoo/GPT-2/blob/master/evaluate/bleuscore_test.ipynb)|kogpt2 모델을 이용한 BLEU 스코어 구하는 예제  (get_bleu_scores)|
 
 #### BLEU Score  예제-1
 - **입력 reference는 문장이 1개이더라도, 리스트로 묶어 줘야 한다.**(candidate는 상관 없음)
@@ -55,6 +59,3 @@ for i in range(len(references)):
 # bleu 스코어 평균을 구함    
 bleu_score = statistics.mean(scores)
 ```
-|소스|내용|
-|:--------|:-------------------------------|
-|[bleuscore_test.ipynb](https://github.com/kobongsoo/GPT-2/blob/master/evaluate/bleuscore_test.ipynb)|kogpt2 모델을 이용한 BLEU 스코어 구하는 예제|

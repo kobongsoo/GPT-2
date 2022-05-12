@@ -7,22 +7,24 @@
 - positonal encoding size는 1024 임(즉 **최대 1024 토큰 입력이 가능**함, 참고로 BERT는 512, GPT-3는 2048임) 
 - **Fine-Tuning을 위한 layer 추가가 필요 없음**
 - **각 Task에 맞게 입력데이터와 정의한 특수토큰들을 조합하여 훈련 시킴** (예: Q&A Fine-Tuing 훈련 데이터 = 지문 + <Question 토큰> + 질문 + <Answer 토큰> + 정답)
-- GPT의 Tokenizer는 **ByteLevelBPETokenizer**로, **문자 단위가 아니라 유니코드 바이트 수준으로 토큰**화됨.따라서 **별도 다국어 버전이 따로 없음.**.
-- Tokenizer 에 관한 보다 자세한 내용은 [여기](https://github.com/kobongsoo/GPT-2/tree/master/tokenizer) 참조
-- GPT-1, [GPT-2](https://github.com/openai/gpt-2)는 공개되었지만, GPT-3는 공개 안됨
+- GPT의 Tokenizer는 **ByteLevelBPETokenizer**로, **문자 단위가 아니라 유니코드 바이트 수준으로 토큰**화됨.따라서 **별도 다국어 버전이 따로 없음.**. (Tokenizer 에 관한 보다 자세한 내용은 [여기](https://github.com/kobongsoo/GPT-2/tree/master/tokenizer) 참조)
+- GPT-1, [GPT-2](https://github.com/openai/gpt-2)는 공개되었지만, GPT-3는 공개 안됨. 
+- **GPT-3는 출시 직후 MS가 독점권을 획득**해 버림. 이에 우려한 EleutherAI에서 GPT-3와 유사한 **오픈소스 버전 GPT-Neo**를 출시함 
 
 #### [GPT 모델 종류]
 |모델(by Release)|파라메터수|출시일|레이어수|embedding size|기타|
 |:--------|----------:|----:|-----:|-----:|-------------------|
-|GPT-1 (OpenAI)|117M|2018|12|||
-|[GPT-2 SMALL (OpenAI)](https://huggingface.co/gpt2)|117M|2019|12|768|허깅페이스에 등록된 gpt2|
-|GPT-2 MEDIUM (OpenAI)|345M|2019|24|1,024||
-|GPT-2 LARGE (OpenAI)|762M|2019|36|1,280||
-|GPT-2 EXTRA-LARGE (OpenAI)|1,500M|2019|48|1,600||
-|GPT-3 (OpenAI)|175,000M|2020|96|12,888||
-|[GPT-Neo (EleutherAI)](https://huggingface.co/EleutherAI)|125M,1,300M, 2,700M|2021|||GPT-3와 유사하게 구현한 모델.자세한 정보는 [여기](https://github.com/EleutherAI/gpt-neo) 참조|
-|[GPT-J (EleutherAI)](https://huggingface.co/EleutherAI)|6,000M|2021|||GPT-3와 유사하게 구현한 모델.자세한 정보는 [여기](https://github.com/kingoflolz/mesh-transformer-jax/) 참조|
-|[KoGPT-2 Ver2.0 (SKT)](https://github.com/SKT-AI/KoGPT2)|125M|2021|12|768|SKT 한국어 GPT-2 SMALL 모델|
+|GPT-1 (OpenAI)|117M|2018|12||오픈소스|
+|[GPT-2 SMALL (OpenAI)](https://huggingface.co/gpt2)|117M|2019|12|768|허깅페이스에 등록된 gpt2(오픈소스)|
+|GPT-2 MEDIUM (OpenAI)|345M|2019|24|1,024|오픈소스|
+|GPT-2 LARGE (OpenAI)|762M|2019|36|1,280|오픈소스|
+|GPT-2 EXTRA-LARGE (OpenAI)|1,500M|2019|48|1,600|오픈소스|
+|GPT-3 (OpenAI)|175B|2020|96|12,888|MS가 독점권 획득.(오픈소스아님)|
+|[GPT-Neo (EleutherAI)](https://huggingface.co/EleutherAI)|125M,1,300M, 2,700M|2021|||GPT-3와 유사하게 구현한 모델(오픈소스),자세한 정보는 [여기](https://github.com/EleutherAI/gpt-neo) 참조|
+|[GPT-J (EleutherAI)](https://huggingface.co/EleutherAI)|6B|2021|||GPT-Neo보가 큰 모델(오픈소스), 자세한 정보는 [여기](https://github.com/kingoflolz/mesh-transformer-jax/) 참조|
+|[KoGPT-2 Ver2.0 (SKT)](https://github.com/SKT-AI/KoGPT2)|125M|2021|12|768|SKT 한국어 GPT-2 SMALL 모델(오픈소스)|
+|HyperCLOVA(네이버)|204B|2021|||네이버 한국어 GPT-3 모델, 97%한국어 말뭉치 이용|
+|KoGPT(카카오)|6B|2021|28|4,060|카카오브레인 한국어 GPT-3 모델,[github에 모델 공개함](https://github.com/kakaobrain/kogpt)|
 
 - 각종 모델 spec 에 대한 자세한 내용은 [여기](https://huggingface.co/transformers/v2.2.0/pretrained_models.html) 참조 바람
 

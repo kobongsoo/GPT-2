@@ -3,7 +3,7 @@
 - 분류 모델 처럼 labe이 정해져 있는 모델로 Fine-Tuning 하면, 분류 label과 실제 label를 비교하여 Accuracy를 구하면 된다.
 - Language Model에서는 성능 측정 방법으로, **BLEU(Bilingual Evaluation Understudy)** 를 대표적으로 사용한다.
 
-### 1. BLEU Score(Bilingual Evaluation Understudy Score
+### 1. BLEU Score(Bilingual Evaluation Understudy Score)
 - BLEU는 기계번역 성능 측정 스코어로, **실제 번역 문장(references)** 과 **모델이 생성한 문장(candidate)** 을 비교하여 스코어를 구한다
 - 측정 기준은 n-gram에 기반하며, 0~1 사이값을 가짐. BLEU 값이 높을 수록 성능이 좋음을 의미함. (BLEU에 대한 자세한 내용은 [여기](https://wikidocs.net/31695) 참조)
 - NLTK에 **bleu_score 라이브러리**를 이용하면 됨

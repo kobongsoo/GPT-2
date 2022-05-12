@@ -27,6 +27,12 @@ print('*bleu_score:{}'.format(bleu_score))
 import statistics
 from nltk.translate.bleu_score import sentence_bleu
 
+# 모델에서 출력한 값
+candidate = ["오늘은 날씨가 흐리고 비가 옵니다.", "오늘은 춥고 흐립니다.", "내일은 날씨가 흐리고 춥습니다."]
+
+# 실제 추정 값
+references = ['내일은 날씨가 흐리고 비가 옵니다.', '오늘은 날씨가 좋고 비가 옵니다.', '오늘은 날씨가 흐리고 눈이 옵니다']
+
 scores = []
 for i in range(len(references)):
     references_list = []

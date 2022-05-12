@@ -93,4 +93,6 @@ model = GPT2LMHeadModel(config=configuration)
 model.save_pretrained(MODEL_OUT_PATH)
 tokenizer.save_pretrained(MODEL_OUT_PATH)
 ```
-
+|소스|내용|
+|:--------|:-------------------------------|
+|[gpt2_scratch](https://github.com/kobongsoo/GPT-2/blob/master/gpt2_scratch.ipynb)|새롭게 GPT-2 모델을 훈련시켜 만드는 예제|

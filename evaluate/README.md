@@ -10,6 +10,7 @@
 - 참고로 **get_bleu_scores 함수** 를 구현해 놨음 ([소스](https://github.com/kobongsoo/GPT-2/blob/master/evaluate/bleuscore_test.ipynb) 참조)
 
 #### BLEU Score  예제-1
+- **입력 reference는 문장이 1개이더라도, 리스트로 묶어 줘야 한다.**(candidate는 상관 없음)
 ```
 import nltk.translate.bleu_score as bleu
 
@@ -19,6 +20,7 @@ candidate = "오늘은 날씨가 흐리고 비가 옵니다."
 # 실제 추정 값
 references = ['내일은 날씨가 흐리고 비가 옵니다.', '오늘은 날씨가 좋고 비가 옵니다.', '오늘은 날씨가 흐리고 눈이 옵니다']
 
+# blue 를 구함
 bleu_score = bleu.sentence_bleu(list(map(lambda ref: ref.split(), references)),candidate.split())
 print('*bleu_score:{}'.format(bleu_score))
 ```
@@ -36,16 +38,17 @@ references = ['내일은 날씨가 흐리고 비가 옵니다.', '오늘은 날�
 scores = []
 for i in range(len(references)):
     references_list = []
-    references_list.append(references[i])  #references는 리스트로 변환해야 함
+    references_list.append(references[i])  #**references는 반드시 리스트에 넣어야 함.
     candidate = candidates[i]
-    inputtext = inputs[i]
     
+    # blue 를 구함
     ref = list(map(lambda ref: ref.split(), references_list))
     bleu = sentence_bleu(ref, candidate.split())
     
-    print(f"*input: {inputtext} *blue: {bleu}")
+    # 출력 
     print(f"*reference: {references_list[0]}")
-    print(f"*candidate: {candidate}\n")
+    print(f"*candidate: {candidate}")
+    print(f"*blue: {bleu}\n")
     
     scores.append(bleu)
 

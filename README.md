@@ -12,15 +12,17 @@
 - GPT-1, [GPT-2](https://github.com/openai/gpt-2)는 공개되었지만, GPT-3는 공개 안됨
 
 #### [GPT 모델 종류]
-|모델|파라메터수|출시일|레이어수|embedding size|기타|
+|모델(by Release)|파라메터수|출시일|레이어수|embedding size|기타|
 |:--------|----------:|----:|-----:|-----:|-------------------|
-|GPT-1|117M|2018|12|||
-|[GPT-2 SMALL](https://huggingface.co/gpt2)|117M|2019|12|768|허깅페이스에 등록된 gpt2|
-|GPT-2 MEDIUM|345M|2019|24|1,024||
-|GPT-2 LARGE|762M|2019|36|1,280||
-|GPT-2 EXTRA-LARGE|1,500M|2019|48|1,600||
-|GPT-3|175,000M|2020|96|12,888||
-|[KoGPT-2 Ver2.0](https://github.com/SKT-AI/KoGPT2)|125M|2021|12|768|SKT 한국어 GPT-2 SMALL 모델|
+|GPT-1 (OpenAI)|117M|2018|12|||
+|[GPT-2 SMALL (OpenAI)](https://huggingface.co/gpt2)|117M|2019|12|768|허깅페이스에 등록된 gpt2|
+|GPT-2 MEDIUM (OpenAI)|345M|2019|24|1,024||
+|GPT-2 LARGE (OpenAI)|762M|2019|36|1,280||
+|GPT-2 EXTRA-LARGE (OpenAI)|1,500M|2019|48|1,600||
+|GPT-3 (OpenAI)|175,000M|2020|96|12,888||
+|[GPT-Neo (EleutherAI)](https://huggingface.co/EleutherAI)|125M,1,300M, 2,700M|2021|||GPT-3와 유사하게 구현한 모델.자세한 정보는 [여기](https://github.com/EleutherAI/gpt-neo) 참조|
+|GPT-J (EleutherAI)|6,000M|2021||||
+|[KoGPT-2 Ver2.0 (SKT)](https://github.com/SKT-AI/KoGPT2)|125M|2021|12|768|SKT 한국어 GPT-2 SMALL 모델|
 
 - 각종 모델 spec 에 대한 자세한 내용은 [여기](https://huggingface.co/transformers/v2.2.0/pretrained_models.html) 참조 바람
 

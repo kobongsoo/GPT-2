@@ -9,6 +9,9 @@
 - NLTK에 **bleu_score 라이브러리**를 이용하면 됨
 - 실제로는 원래 문장(reference)에서 뒤에 몇개의 토큰을 제거한 문장을 모델에 입력으로 넣고, 이후 출력(생성)되는 문장(candidate)를 서로 비교하여 BLEU 스코어를 구한다.
 
+![image](https://user-images.githubusercontent.com/93692701/168027016-2ba690eb-eebc-4259-9aa6-928998977f09.png)
+
+
 |소스|내용|
 |:--------|:-------------------------------|
 |[bleuscore_test.ipynb](https://github.com/kobongsoo/GPT-2/blob/master/evaluate/bleuscore_test.ipynb)|kogpt2 모델을 이용한 BLEU 스코어 구하는 예제  (get_bleu_scores)|

@@ -21,7 +21,7 @@
 |GPT-2 EXTRA-LARGE (OpenAI)|1,500M|2019|48|1,600||
 |GPT-3 (OpenAI)|175,000M|2020|96|12,888||
 |[GPT-Neo (EleutherAI)](https://huggingface.co/EleutherAI)|125M,1,300M, 2,700M|2021|||GPT-3와 유사하게 구현한 모델.자세한 정보는 [여기](https://github.com/EleutherAI/gpt-neo) 참조|
-|GPT-J (EleutherAI)|6,000M|2021||||
+|[GPT-J (EleutherAI)](https://huggingface.co/EleutherAI)|6,000M|2021|||GPT-3와 유사하게 구현한 모델.자세한 정보는 [여기](https://github.com/kingoflolz/mesh-transformer-jax/) 참조|
 |[KoGPT-2 Ver2.0 (SKT)](https://github.com/SKT-AI/KoGPT2)|125M|2021|12|768|SKT 한국어 GPT-2 SMALL 모델|
 
 - 각종 모델 spec 에 대한 자세한 내용은 [여기](https://huggingface.co/transformers/v2.2.0/pretrained_models.html) 참조 바람

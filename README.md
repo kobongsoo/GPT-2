@@ -9,7 +9,7 @@
 - **각 Task에 맞게 입력데이터와 정의한 특수토큰들을 조합하여 훈련 시킴** (예: Q&A Fine-Tuing 훈련 데이터 = 지문 + <Question 토큰> + 질문 + <Answer 토큰> + 정답)
 - GPT의 Tokenizer는 **ByteLevelBPETokenizer**로, **문자 단위가 아니라 유니코드 바이트 수준으로 토큰**화됨.따라서 **별도 다국어 버전이 따로 없음.**. (Tokenizer 에 관한 보다 자세한 내용은 [여기](https://github.com/kobongsoo/GPT-2/tree/master/tokenizer) 참조)
 - GPT-1, [GPT-2](https://github.com/openai/gpt-2)는 공개되었지만, GPT-3는 공개 안됨. 
-- **GPT-3는 출시 직후 MS가 독점권을 획득**해 버림. 이에 우려한 EleutherAI에서 GPT-3와 유사한 **오픈소스 버전 GPT-Neo**를 출시함 
+- **GPT-3는 출시 직후 MS가 독점권을 획득**해 버림. 이에 우려한 EleutherAI(얼루터AI)에서 GPT-3와 유사한 **오픈소스 버전 GPT-Neo**를 출시함 
 
 #### [GPT 모델 종류]
 |모델(by Release)|파라메터수|출시일|레이어수|embedding size|기타|

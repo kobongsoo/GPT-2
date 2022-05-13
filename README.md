@@ -18,9 +18,9 @@
 |[GPT-2 SMALL (OpenAI)](https://huggingface.co/gpt2)|117M|2019|12|768|허깅페이스에 등록된 gpt2(오픈소스)|
 |GPT-2 MEDIUM (OpenAI)|345M|2019|24|1,024|오픈소스|
 |GPT-2 LARGE (OpenAI)|762M|2019|36|1,280|오픈소스|
-|GPT-2 EXTRA-LARGE (OpenAI)|1,500M|2019|48|1,600|오픈소스|
+|GPT-2 EXTRA-LARGE (OpenAI)|1.5B|2019|48|1,600|오픈소스|
 |GPT-3 (OpenAI)|175B|2020|96|12,888|MS가 독점권 획득.(오픈소스아님)|
-|[GPT-Neo (EleutherAI)](https://huggingface.co/EleutherAI)|125M,1,300M, 2,700M|2021|||GPT-3와 유사하게 구현한 모델(오픈소스),자세한 정보는 [여기](https://github.com/EleutherAI/gpt-neo) 참조|
+|[GPT-Neo (EleutherAI)](https://huggingface.co/EleutherAI)|125M/1.3B/2.7B|2021|||GPT-3와 유사하게 구현한 모델(오픈소스),자세한 정보는 [여기](https://github.com/EleutherAI/gpt-neo) 참조|
 |[GPT-J (EleutherAI)](https://huggingface.co/EleutherAI)|6B|2021|||GPT-Neo보가 큰 모델(오픈소스), 자세한 정보는 [여기](https://github.com/kingoflolz/mesh-transformer-jax/) 참조|
 |[KoGPT-2 Ver2.0 (SKT)](https://github.com/SKT-AI/KoGPT2)|125M|2021|12|768|SKT 한국어 GPT-2 SMALL 모델(오픈소스)|
 |HyperCLOVA(네이버)|204B|2021|||네이버 한국어 GPT-3 모델, 97%한국어 말뭉치 이용|

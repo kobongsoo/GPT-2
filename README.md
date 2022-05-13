@@ -3,7 +3,7 @@
 
 ## 1.개요
 - Generative Pretrained Transformer2
-- Open AI 에서 개발한 모델로, transformers 의 decode 부분을 12개의 레이어를 쌓아서 만든 **Language Model**임
+- Open AI 에서 개발한 모델로, transformers 의 decode 부분을 12~48개의 레이어를 쌓아서 만든 **Language Model**임
 - positonal encoding size는 1024 임(즉 **최대 1024 토큰 입력이 가능**함, 참고로 BERT는 512, GPT-3는 2048임) 
 - **Fine-Tuning을 위한 layer 추가가 필요 없음**
 - **각 Task에 맞게 입력데이터와 정의한 특수토큰들을 조합하여 훈련 시킴** (예: Q&A Fine-Tuing 훈련 데이터 = 지문 + <Question 토큰> + 질문 + <Answer 토큰> + 정답)

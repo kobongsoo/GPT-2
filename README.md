@@ -91,7 +91,7 @@ model = GPT2LMHeadModel(config=configuration)
 ```
 
 #### 3. 훈련
-- test generation Fine-tuing 방식과 동일하게 훈련
+- 처음부터 **Text generation Fine-tuning 방식**으로 훈련시키기도 하고, BERT 처럼 **MLM(Maksed Language Model) 방식**으로 훈련시키기도 함.
 
 #### 4. 모델과 tokenizer 저장
 ```
@@ -100,4 +100,5 @@ tokenizer.save_pretrained(MODEL_OUT_PATH)
 ```
 |소스|내용|
 |:--------|:-------------------------------|
-|[gpt2_scratch](https://github.com/kobongsoo/GPT-2/blob/master/gpt2_scratch.ipynb)|새롭게 GPT-2 모델을 훈련시켜 만드는 예제|
+|[gpt2_scratch](https://github.com/kobongsoo/GPT-2/blob/master/gpt2_scratch.ipynb)|새롭게 GPT-2 모델을 만드는 예제=>Text generation 방식으로 훈련시킴|
+|[gpt2_scratch_Trainer](https://github.com/kobongsoo/GPT-2/blob/master/gpt2_scratch_Trainer.ipynb))|새롭게 GPT-2 모델을 만드는 예제=>Hugginface Trainer 사용, MLM 방식으로 훈련시킴|

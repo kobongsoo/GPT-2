@@ -101,4 +101,4 @@ tokenizer.save_pretrained(MODEL_OUT_PATH)
 |소스|내용|
 |:--------|:-------------------------------|
 |[gpt2_scratch](https://github.com/kobongsoo/GPT-2/blob/master/gpt2_scratch.ipynb)|새롭게 GPT-2 모델을 만드는 예제=>Text generation 방식으로 훈련시킴|
-|[gpt2_scratch_Trainer](https://github.com/kobongsoo/GPT-2/blob/master/gpt2_scratch_Trainer.ipynb))|새롭게 GPT-2 모델을 만드는 예제=>Hugginface Trainer 사용, MLM 방식으로 훈련시킴|
+|[gpt2_scratch_Trainer](https://github.com/kobongsoo/GPT-2/blob/master/gpt2_scratch_Trainer.ipynb)|새롭게 GPT-2 모델을 만드는 예제=>Hugginface Trainer 사용, MLM 방식으로 훈련시킴|

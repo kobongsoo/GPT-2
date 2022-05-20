@@ -102,3 +102,27 @@ tokenizer.save_pretrained(MODEL_OUT_PATH)
 |:--------|:-------------------------------|
 |[gpt2_scratch](https://github.com/kobongsoo/GPT-2/blob/master/gpt2_scratch.ipynb)|새롭게 GPT-2 모델을 만드는 예제=>Text generation 방식으로 훈련시킴|
 |[gpt2_scratch_Trainer](https://github.com/kobongsoo/GPT-2/blob/master/gpt2_scratch_Trainer.ipynb)|새롭게 GPT-2 모델을 만드는 예제=>Hugginface Trainer 사용, MLM 방식으로 훈련시킴|
+
+## 5. GPT-2 병렬처리
+- Transformers에서 제공하는 GPT-2 모델의 크기의 Attention 모듈 계수에 따라, **아래 device마다 할당할 모듈 번호를 지정**해 주면 됨
+<br>예를 들어, GPU 3개에 GPT-2 LARGE 모델의 Attention 모듈을 아래처럼 4개씩 나누어 작성하면 됨
+- **병렬 처리**를 하려면 **parallelize()** 호출 하면 됨.
+```
+# On a 4 GPU machine with gpt2-large:
+model = GPT2LMHeadModel.from_pretrained("gpt2-large")
+
+device_map = {
+    0: [0, 1, 2, 3, 4, 5, 6, 7],
+    1: [8, 9, 10, 11, 12, 13, 14, 15],
+    2: [16, 17, 18, 19, 20, 21, 22, 23],
+    3: [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35],
+}
+
+model.parallelize(device_map)
+```
+- 위 처럼 모델 **병렬 처리 해제**할때는 아래 처럼 **deparallelize()** 호출 하면 됨.
+```
+model.deparallelize()
+```
+-HuggingFace 공식 도뮤먼트에서 parallelize 메소드를 제공하는 모델이면, 위와 같은 병렬처리 적용 가능함.
+<br> 예: T5 모델, GPT-2/GPT-Neo/GPT-J 등

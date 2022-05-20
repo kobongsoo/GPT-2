@@ -27,12 +27,14 @@
 |[KoGPT(카카오)](https://huggingface.co/kakaobrain/kogpt/tree/KoGPT6B-ryan1.5b-float16)|6B|2021|28|4,060|카카오브레인 한국어 GPT-3 모델/[github에 모델 공개](https://github.com/kakaobrain/kogpt)/**32G GPU RAM** 필요(**KoGPT6B-ryan1.5b-float16** 이용시:**최소 16G GPU RAM** 필요)|
 
 - 각종 모델 spec 에 대한 자세한 내용은 [여기](https://huggingface.co/transformers/v2.2.0/pretrained_models.html) 참조 바람
+***
 
 ## 2.  GPT-2 VS BERT
 - GPT-2는 이전 단어들을 가지고, 다음 단어를 예측하는 **자기 회귀 모델(auto-regressive model)** 임 
 - BERT는 해당 스텝에서 모든 단어를 고려하는 Self-Attention 사용하고,
 반면, GPT-2는 해당스탭에서 오른쪽에 있는 단어들은 고려 하지 않는 **Masked Self-Attention(CLM(Causal language modeling) 방식)** 사용함
  ![image](https://user-images.githubusercontent.com/93692701/167518193-15bf7128-2e8c-427f-ba87-99bf4c11b936.png)
+***
 
 ## 3. Fine-Tuning
 - 한국어 [KoGPT-2 Ver2.0](https://github.com/SKT-AI/KoGPT2) 를 가지고 Fine-Tuning 하는 예시임
@@ -74,8 +76,7 @@
 |소스|내용|
 |:--------|:-------------------------------|
 |[kogpt2_QA_finetuning](https://github.com/kobongsoo/GPT-2/blob/master/kogpt2_QA_finetuning.ipynb)|kogpt2 모델을 이용한 한국어 Q&A Fine-Tuning 훈련 예제|
-
-
+***
 
 ## 4. 새롭게 훈련(GPT-2 From Scratch)
 #### 1. Sentencepiece tokenizer 생성 
@@ -102,6 +103,7 @@ tokenizer.save_pretrained(MODEL_OUT_PATH)
 |:--------|:-------------------------------|
 |[gpt2_scratch](https://github.com/kobongsoo/GPT-2/blob/master/gpt2_scratch.ipynb)|새롭게 GPT-2 모델을 만드는 예제=>Text generation 방식으로 훈련시킴|
 |[gpt2_scratch_Trainer](https://github.com/kobongsoo/GPT-2/blob/master/gpt2_scratch_Trainer.ipynb)|새롭게 GPT-2 모델을 만드는 예제=>Hugginface Trainer 사용, MLM 방식으로 훈련시킴|
+***
 
 ## 5. GPT-2 병렬처리
 - Transformers에서 제공하는 GPT-2 모델의 크기의 Attention 모듈 계수에 따라, **아래 device마다 할당할 모듈 번호를 지정**해 주면 됨

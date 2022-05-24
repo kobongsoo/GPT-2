@@ -106,7 +106,7 @@ tokenizer.save_pretrained(MODEL_OUT_PATH)
 ***
 
 ## 5. GPT-2 병렬처리
-- Transformers에서 제공하는 GPT-2 모델의 크기의 Attention 모듈 계수에 따라, **아래 device마다 할당할 모듈 번호를 지정**해 주면 됨
+- **Hugginfface Transformers 라이브러리**에서 제공하는 GPT-2 모델의 크기의 Attention 모듈 계수에 따라, **아래 device마다 할당할 모듈 번호를 지정**해 주면 됨
 <br>예를 들어, GPU 3개에 GPT-2 LARGE 모델의 Attention 모듈을 아래처럼 4개씩 나누어 작성하면 됨
 - **병렬 처리**를 하려면 **parallelize()** 호출 하면 됨.
 ```

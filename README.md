@@ -126,5 +126,5 @@ model.parallelize(device_map)
 ```
 model.deparallelize()
 ```
--HuggingFace 공식 도뮤먼트에서 parallelize 메소드를 제공하는 모델이면, 위와 같은 병렬처리 적용 가능함.
+-HuggingFace 공식 도큐먼트에서 parallelize 메소드를 제공하는 모델이면, 위와 같은 병렬처리 적용 가능함.
 <br> 예: T5, GPT-2등

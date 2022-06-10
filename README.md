@@ -25,6 +25,7 @@
 |[KoGPT-2 Ver2.0 (SKT)](https://github.com/SKT-AI/KoGPT2)|125M|2021|12|768|SKT 한국어 GPT-2 SMALL 모델(오픈소스)|
 |HyperCLOVA(네이버)|204B|2021|||네이버 한국어 GPT-3 모델/97%한국어 말뭉치 이용|
 |[KoGPT(카카오)](https://huggingface.co/kakaobrain/kogpt/tree/KoGPT6B-ryan1.5b-float16)|6B|2021|28|4,060|카카오브레인 한국어 GPT-3 모델/[github에 모델 공개](https://github.com/kakaobrain/kogpt)/**32G GPU RAM** 필요(**KoGPT6B-ryan1.5b-float16** 이용시:**최소 16G GPU RAM** 필요)|
+|OPT-175B(Meta)|175B|2022|||GPT-3와 같은 파라메터를 가지는 (오픈소스)/자세한 정보는 [여기](https://github.com/facebookresearch/metaseq) 참조|
 
 - 각종 모델 spec 에 대한 자세한 내용은 [여기](https://huggingface.co/transformers/v2.2.0/pretrained_models.html) 참조 바람
 ***

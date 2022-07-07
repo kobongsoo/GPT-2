@@ -10,6 +10,21 @@
 - GPT의 Tokenizer는 **ByteLevelBPETokenizer**로, **문자 단위가 아니라 유니코드 바이트 수준으로 토큰**화됨.따라서 **별도 다국어 버전이 따로 없음.**. (Tokenizer 에 관한 보다 자세한 내용은 [여기](https://github.com/kobongsoo/GPT-2/tree/master/tokenizer) 참조)
 - GPT-1, [GPT-2](https://github.com/openai/gpt-2)는 공개되었지만, GPT-3는 공개 안됨. 
 - **GPT-3는 출시 직후 MS가 독점권을 획득**해 버림. 이에 우려한 [EleutherAI(엘루더AI)](https://www.eleuther.ai/)에서 GPT-3와 유사한 **오픈소스 버전 GPT-Neo**를 출시함 
+<br> 참고] GPT-3, HyperCLOVA 등은 커서 Fine-tuning 하기가 어려움. 따라서 Prompt Encoder를 추가해서, Encoder만 훈련하는 **P-tuning**을 이용함.
+
+![image](https://user-images.githubusercontent.com/93692701/177675913-5992fe6d-c9b4-4491-bca7-e5fe30b39d12.png)
+
+```
+PromptEncoder(
+  (lstm): LSTM(hidden_size, hidden_size // 2, num_layers=2, bidirectional=True)
+  (mlp): Sequential(
+    (0): Linear(in_features=hidden_size, out_features=hidden_size)
+    (1): ReLU()
+    (2): Linear(in_features=hidden_size, out_features=hidden_size)
+  )
+)
+```
+<br> 출처 : https://blog.naver.com/PostView.nhn?blogId=sooftware&logNo=222371869747
 
 #### [GPT 모델 종류]
 |모델(by Release)|파라메터수|출시일|레이어수|embedding size|기타|
